@@ -1,0 +1,20 @@
+{
+  "name": "ng-django-translate",
+  "version": "0.0.1",
+  "main": [
+    "./dist/ng-django-translate-0.0.1.js"
+  ],
+  "description": "AngularJS module for django i18n translations support. Work together with django module djangular-translate ",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/magnitronus/ng-django-translate.git"
+  },
+  "dependencies": {
+    "angular": "*"
+  },
+  "ignore": [
+    "node_modules",
+    "components",
+    "lib"
+  ]
+}
