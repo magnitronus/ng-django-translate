@@ -198,7 +198,7 @@ var directives = angular.module('ngDjangoTranslate.directives', [])
                     });
                 }
                 if (elem.text()) {
-                    scope.msg_ids.innerText=elem.text();
+                    scope.msg_ids.innerText=elem.html();
                 }
 
                 var do_translate = function() {
@@ -209,7 +209,7 @@ var directives = angular.module('ngDjangoTranslate.directives', [])
                     angular.forEach(scope.msg_ids, function(value, key){
                         if (curr_lang.code==def_lang_code) {
                             if (key=='innerText') {
-                                elem.text(value);
+                                elem.html(value);
                             }
                             else {
                                 elem.attr(key, value);
