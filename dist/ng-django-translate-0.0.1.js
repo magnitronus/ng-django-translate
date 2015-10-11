@@ -197,7 +197,7 @@ var directives = angular.module('ngDjangoTranslate.directives', [])
                         scope.msg_ids[attr_name]=attrs[attr_name];
                     });
                 }
-                if (elem.text()) {
+                if (elem.html()) {
                     scope.msg_ids.innerText=elem.html();
                 }
 
@@ -217,7 +217,7 @@ var directives = angular.module('ngDjangoTranslate.directives', [])
                         }
                         else if (angular.isDefined(tr_catalog[value])){
                             if (key=='innerText') {
-                                elem.text(tr_catalog[value]);
+                                elem.html(tr_catalog[value]);
                             }
                             else {
                                 elem.attr(key, tr_catalog[value]);
