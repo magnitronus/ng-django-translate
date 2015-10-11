@@ -97,9 +97,19 @@ var directives = angular.module('ngDjangoTranslate.directives', [])
 
                 var do_translate = function() {
                     var tr_catalog = ngDjangoTranslate.get_catalog();
+                    var curr_lang = ngDjangoTranslate.get_current_language();
+                    var def_lang_code = ngDjangoTranslate.settings.default_lang;
                     
                     angular.forEach(scope.msg_ids, function(value, key){
-                        if (angular.isDefined(tr_catalog[value])){
+                        if (curr_lang.code==def_lang_code) {
+                            if (key=='innerText') {
+                                elem.text(value);
+                            }
+                            else {
+                                elem.attr(key, value);
+                            }
+                        }
+                        else if (angular.isDefined(tr_catalog[value])){
                             if (key=='innerText') {
                                 elem.text(tr_catalog[value]);
                             }
