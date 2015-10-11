@@ -11,7 +11,8 @@ module.provider('ngDjangoTranslate', function () {
             urls:{
                 languages:'/languages/',
                 catalog:'/catalog/'
-            }
+            },
+            default_lang: 'en'
         };
 
         this.config = function (newSettings) {
@@ -36,6 +37,9 @@ module.provider('ngDjangoTranslate', function () {
                             privateMethods.catalog_reload().then(function(){
                                 thisModule.loaded = true;
                                 thisModule.loader = null;
+                                if (thisModule.languages[thisModule.current_language].code!=thisModule.settings.default_lang) {
+                                    $rootScope.$broadcast('ngDjangoTranslate.language.changed');
+                                }
                                 defferer.resolve();
                             });
                         });
