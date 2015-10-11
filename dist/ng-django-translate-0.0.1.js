@@ -225,6 +225,12 @@ var directives = angular.module('ngDjangoTranslate.directives', [])
                         }
                     });
                 };
+                if (ngDjangoTranslate.is_ready()){
+                    var curr_lang = ngDjangoTranslate.get_current_language();
+                    var def_lang_code = ngDjangoTranslate.settings.default_lang;
+                    if (curr_lang.code!=def_lang_code)  do_translate();
+                }
+                
                 $rootScope.$on('ngDjangoTranslate.language.changed', do_translate);
             }
         };
