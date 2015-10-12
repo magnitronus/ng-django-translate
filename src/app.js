@@ -81,7 +81,7 @@ module.provider('ngDjangoTranslate', function () {
                             
                             var catalog_onreload = function() {
                                 $rootScope.$broadcast('ngDjangoTranslate.language.changed');
-                                defferer.resolve();
+                                defferer.resolve(thisModule.languages[thisModule.current_language]);
                             };
                             
                             if (data.success) {
